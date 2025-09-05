@@ -44,5 +44,23 @@ def _():
     return
 
 
+@app.cell
+def _():
+    # make a function to import a file
+    def read_file(file):
+        with open(file, "r") as f:
+            content = f.read().strip()
+        return content
+
+    #a = read_file("../data/dna.txt")
+    #print(a)
+    return
+
+
+@app.cell
+def _():
+    return
+
+
 if __name__ == "__main__":
     app.run()
