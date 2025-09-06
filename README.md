@@ -14,7 +14,7 @@ name: bioinformatics
 channels:
   - conda-forge
 dependencies:
-  - python=3.13
+  - python
   - marimo
 ```
 

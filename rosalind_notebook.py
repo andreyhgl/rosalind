@@ -1,6 +1,6 @@
 import marimo
 
-__generated_with = "0.13.6"
+__generated_with = "0.15.2"
 app = marimo.App(width="medium")
 
 
@@ -52,8 +52,22 @@ def _():
             content = f.read().strip()
         return content
 
+    def count_character(content):
+        # extract the unique characters from the string, keep in alphabetic order
+        chars = "".join(sorted(set(content)))
+
+        # assign the counted chars to output
+        output = ""
+
+        # loop over each char and count, save as string w/ whitespace
+        for char in chars:
+            output += str(content.count(char)) + " "
+        print(output)
+
     #a = read_file("../data/dna.txt")
     #print(a)
+    content = read_file("../data/dna.txt")
+    count_character(content)
     return
 
 
