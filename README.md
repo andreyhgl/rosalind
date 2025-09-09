@@ -4,7 +4,7 @@ This project is an effort to learn python by solving [bioinformatic challenges](
 
 <details><summary>Environment setup</summary><br>
   
-> [!important]
+> [!important]<br>
 > Assumes the packages manager Conda is already installed on the system
   
   Python is ran inside a conda environment with all the nessessary dependencies installed and contained within. The environment can be setup in multiple ways, here the environment is built from a single file: `environment.yml`
