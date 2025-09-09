@@ -1,59 +1,51 @@
 # README
 
-This project is an effort to learn python by solving [bioinformatic challanges](https://rosalind.info/problems/locations/).
+This project is an effort to learn python by solving [bioinformatic challenges](https://rosalind.info/problems/locations/).
 
-## Environment setup
+<details><summary>Environment setup</summary>
 
-> [!NOTE]
-> Assumes the packages manager Conda is already installed on the system
+  ## Environment setup
+  
+  > [!NOTE]
+  > Assumes the packages manager Conda is already installed on the system
+  
+  Python is ran inside a conda environment with all the nessessary dependencies installed and contained within. The environment can be setup in multiple ways, here the environment is built from a single file: `environment.yml`
+  
+  ```yml
+  name: bioinformatics
+  channels:
+    - conda-forge
+  dependencies:
+    - python
+    - marimo
+  ```
+  
+  Create the environment and "jump" into it
+  
+  ```sh
+  conda env create -f environment.yml -n bioinformatics
+  conda activate bioinformatics
+  
+  # In case new dependancies are needed:
+  
+  # 1. add them to environmental.yml
+  # 2. remove the environment
+  #conda env remove -n bioinformatics
+  
+  # 3. install from file again
+  #conda env create -f environment.yml -n bioinformatics
+  ```
+  
+  Start a python notebook (marimo)
+  
+  ```sh
+  marimo edit
+  ```
+</details>
 
-Python is ran inside a conda environment with all the nessessary dependencies installed and contained within. The environment can be setup in multiple ways, here we build the environment from a single file. Paste the following into `environment.yml`
-
-```yml
-name: bioinformatics
-channels:
-  - conda-forge
-dependencies:
-  - python
-  - marimo
-```
-
-Create the environment and "jump" into it
-
-```sh
-conda env create -f environment.yml -n bioinformatics
-conda activate bioinformatics
-
-# In case new dependancies are needed:
-
-# 1. add them to environmental.yml
-# 2. remove the environment
-#conda env remove -n bioinformatics
-
-# 3. install from file again
-#conda env create -f environment.yml -n bioinformatics
-```
-
-Start a python notebook (marimo)
-
-```sh
-marimo edit
-```
-
-
----
-
-
-+ env: conda dependencies
-+ webscrape code explaination
-+ statistics for prediction
-
-
-
-
-
-Try the script. I am using marimo as notebook.
+## [Sequence counting](https://rosalind.info/problems/ini/)
 
 ```sh
-marimo edit stryket.py
+python bin/ini.py data/rosalind_ini.txt
 ```
+
