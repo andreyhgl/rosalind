@@ -2,10 +2,11 @@
 
 This project is an effort to learn python by solving [bioinformatic challenges](https://rosalind.info/problems/locations/).
 
-<details><summary>Environment setup</summary><br>
-  
-> [!important]<br>
-> Assumes the packages manager Conda is already installed on the system
+<details>
+  <summary>Environment setup</summary>
+
+  > [!IMPORTANT]
+  > Assumes the packages manager Conda is already installed on the system
   
   Python is ran inside a conda environment with all the nessessary dependencies installed and contained within. The environment can be setup in multiple ways, here the environment is built from a single file: `environment.yml`
   
@@ -42,6 +43,9 @@ This project is an effort to learn python by solving [bioinformatic challenges](
 </details>
 
 ## [Sequence counting](https://rosalind.info/problems/ini/)
+
+<details>
+  <summary>[Sequence counting](https://rosalind.info/problems/ini/)</summary>
 
 To read a file, use the function `open`.<br>
 Add the statement `with` to close the file after read.<br>
@@ -86,4 +90,15 @@ Put it all together
 
 ```sh
 python bin/ini.py data/rosalind_ini.txt
+```
+</details>
+
+## NCBI's GenBank query
+
+The NCBI GenBank contains all annotated DNA sequences, with their transcripts and proteins. To extract entries from this database, use NCBI search engine [Entrez](https://www.ncbi.nlm.nih.gov/search/). [Biopython](https://biopython.org/) is a python library with biological computational tools.
+
+```py
+#!/usr/bin/env python
+
+from Bio import Entrez
 ```
