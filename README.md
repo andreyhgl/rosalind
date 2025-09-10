@@ -44,53 +44,55 @@ This project is an effort to learn python by solving [bioinformatic challenges](
 
 ## [Sequence counting](https://rosalind.info/problems/ini/)
 
+Count number of nucleotides in a given string
+
 <details>
-  <summary>[Sequence counting](https://rosalind.info/problems/ini/)</summary>
+  <summary>Code</summary>
 
-To read a file, use the function `open`.<br>
-Add the statement `with` to close the file after read.<br>
-Use the `read()` method for `open` to read the content.
-
-```py
-def read_file(file):
-  with open(file, "r") as f:
-
-    # .strip() drops the last white space
-    content = f.read().strip()
-  return content
-```
-
-Count the nucleotides in a DNA string. Instead of hard-coding the nucleotides lets pick out any unique character w/ the function `set()`.
-
-```py
-def count_character(content):
-  # extract the unique characters from the string, keep in alphabetic order
-  chars = "".join(sorted(set(content)))
-
-  # assign the counted chars to output
-  output = ""
-
-  # loop over each char and count, save as string w/ whitespace
-  for char in chars:
-    output += str(content.count(char)) + " "
+  To read a file, use the function `open`.<br>
+  Add the statement `with` to close the file after read.<br>
+  Use the `read()` method for `open` to read the content.
   
-  print(output.strip())
-```
-
-Finally, let the script take in an argument for the sequence file, instead of hard-coding the path.
-
-```py
-import sys
-
-# get first argument
-file = sys.argv[1]
-```
-
-Put it all together
-
-```sh
-python bin/ini.py data/rosalind_ini.txt
-```
+  ```py
+  def read_file(file):
+    with open(file, "r") as f:
+  
+      # .strip() drops the last white space
+      content = f.read().strip()
+    return content
+  ```
+  
+  Count the nucleotides in a DNA string. Instead of hard-coding the nucleotides lets pick out any unique character w/ the function `set()`.
+  
+  ```py
+  def count_character(content):
+    # extract the unique characters from the string, keep in alphabetic order
+    chars = "".join(sorted(set(content)))
+  
+    # assign the counted chars to output
+    output = ""
+  
+    # loop over each char and count, save as string w/ whitespace
+    for char in chars:
+      output += str(content.count(char)) + " "
+    
+    print(output.strip())
+  ```
+  
+  Finally, let the script take in an argument for the sequence file, instead of hard-coding the path.
+  
+  ```py
+  import sys
+  
+  # get first argument
+  file = sys.argv[1]
+  ```
+  
+  Put it all together
+  
+  ```sh
+  python bin/ini.py data/rosalind_ini.txt
+  ```
 </details>
 
 ## NCBI's GenBank query
