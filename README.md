@@ -44,14 +44,15 @@ This project is an effort to learn python by solving [bioinformatic challenges](
 
 ## [Sequence counting](https://rosalind.info/problems/ini/)
 
-Count number of nucleotides in a given string
+Count number of nucleotides in a given string, read the string from a file.
 
 <details>
-  <summary>Code</summary>
+  <summary>Code</summary><br>
 
   To read a file, use the function `open`.<br>
   Add the statement `with` to close the file after read.<br>
-  Use the `read()` method for `open` to read the content.
+  Use the `read()` method for `open` to read the content.<br>
+  Wrap in a neat function.
   
   ```py
   def read_file(file):
@@ -62,7 +63,9 @@ Count number of nucleotides in a given string
     return content
   ```
   
-  Count the nucleotides in a DNA string. Instead of hard-coding the nucleotides lets pick out any unique character w/ the function `set()`.
+  Instead of hard-coding the nucleotides, extract the unique character w/ the function `set()`.<br>
+  Use the method `count()` to count the nucleotides.<br>
+  Save the number into a string, separate with a _space_.
   
   ```py
   def count_character(content):
@@ -88,7 +91,7 @@ Count number of nucleotides in a given string
   file = sys.argv[1]
   ```
   
-  Put it all together
+  Put it all together, see [`bin/ini.py`](bin/ini.py)
   
   ```sh
   python bin/ini.py data/rosalind_ini.txt
