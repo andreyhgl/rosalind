@@ -17,6 +17,8 @@ This project is an effort to learn python by solving [bioinformatic challenges](
   dependencies:
     - python
     - marimo
+    - pandas
+    - biopython
   ```
   
   Create the environment and "jump" into it
@@ -102,8 +104,13 @@ Count number of nucleotides in a given string, read the string from a file.
 
 The NCBI GenBank contains all annotated DNA sequences, with their transcripts and proteins. To extract entries from this database, use NCBI search engine [Entrez](https://www.ncbi.nlm.nih.gov/search/). [Biopython](https://biopython.org/) is a python library with biological computational tools.
 
-```py
-#!/usr/bin/env python
+<details>
+  <summary>Code</summary>
 
-from Bio import Entrez
-```
+  ```py
+  #!/usr/bin/env python
+  
+  from Bio import Entrez
+  ```
+
+</details>
