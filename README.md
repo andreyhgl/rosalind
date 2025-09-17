@@ -100,17 +100,64 @@ Count number of nucleotides in a given string, read the string from a file.
   ```
 </details>
 
-## NCBI's GenBank query
+## [NCBI's GenBank query](https://rosalind.info/problems/gbk/)
 
-The NCBI GenBank contains all annotated DNA sequences, with their transcripts and proteins. To extract entries from this database, use NCBI search engine [Entrez](https://www.ncbi.nlm.nih.gov/search/). [Biopython](https://biopython.org/) is a python library with biological computational tools.
+Given an organism name and two (publication) dates, return the number of counts of nucleotides found in the GenBank database.
+
+> The NCBI GenBank contains all annotated DNA sequences, with their transcripts and proteins. To extract entries from this database, the NCBI search engine [Entrez](https://www.ncbi.nlm.nih.gov/search/) can be used. [Biopython](https://biopython.org/) is a python library with biological computational tools, including search function for Entrez.
 
 <details>
   <summary>Code</summary>
 
+  Maintain two digits for day and month, pad with zero if needed: `2007/2/9` => `2007/02/09`<br>
+  Parse the query with the correct quotes
+
   ```py
-  #!/usr/bin/env python
-  
+  from datetime import datetime
   from Bio import Entrez
+
+  def entrez_search(organism, start_date, end_date):
+    # pad dates with zero if needed
+
+    # strptime creates a datetime object
+    start_date = datetime.strptime(start_date, "%Y/%m/%d")
+
+    # strftime creates a string
+    start_date = start_date.strftime("%Y/%m/%d")
+
+    Entrez.email = "dummy@domain.io"
+
+    # parse the query
+    term = '"' + organism + '"' + "[Organism]" + " AND " + '"' + start_date + '"' + "[Publication Date]" + " : " + '"' + end_date + '"' + "[Publication Date]"
+
+    handle = Entrez.esearch(db="nucleotide", term=term)
+    record = Entrez.read(handle)
+    print(record["Count"])
   ```
 
+  Read the organism and the two dates from file, make variables of them
+
+  ```py
+  import sys
+
+  def read_file(file):
+    with open(file, "r") as f:
+      content = f.read().strip()
+    return content
+
+  # get arguments
+  file = sys.argv[1]
+
+  # parse file content
+  content = read_file(file).split("\n")
+  organism, start_date, end_date = content
+  ```
+
+  Put it all together, see [`bin/gbk.py`](bin/gbk.py)
+
+  ```sh
+  python bin/gbk.py data/rosalind_gbk.txt
+  ```
 </details>
+
+## 
